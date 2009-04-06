@@ -50,6 +50,14 @@
   (is (eq 'symbol (->symbol 'symbol)))
   (is (eq 'symbol (->symbol :symbol))))
 
+(test hash->alist
+  (let ((hash (make-hash-table)))
+    (setf (gethash 'k1 hash) 'v1)
+    (setf (gethash 'k2 hash) 'v2)
+    (setf (gethash 'k3 hash) 'v3)
+    (is (equal (hash->alist hash)
+               '((k1 . v1) (k2 . v2) (k3 . v3))))))
+
 (test concat
   (is (string= (concat 1 2 3)                      "123"))
   (is (string= (concat "1" "2" "3")                "123"))

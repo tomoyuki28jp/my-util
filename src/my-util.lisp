@@ -40,6 +40,12 @@
 (defun ->symbol (x)
   (intern (->string (->string-up x))))
 
+(defun hash->alist (hash)
+  (declare (hash-table hash))
+  (loop for key being the hash-key of hash
+     using (hash-value value)
+     collect (cons key value)))
+
 ; --- Strings ---------------------------------------------------
 
 (defun concat (&rest args)

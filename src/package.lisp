@@ -15,6 +15,7 @@
                    :->int
                    :->keyword
                    :->symbol
+                   :hash->alist
                    :concat
                    :join
                    ; --- anaphora ---
