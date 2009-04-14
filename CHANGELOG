@@ -1,3 +1,7 @@
+Version 0.0.2
+Added with-gensyms
+Added hash->alist
+
 Version 0.0.1
 2009-04-06
 Initial public release
