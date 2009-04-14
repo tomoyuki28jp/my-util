@@ -11,6 +11,12 @@
   `(let ((,var ,form))
      (when ,var ,@body)))
 
+(defmacro with-gensyms (syms &body body)
+  `(let ,(mapcar #'(lambda (s)
+                     `(,s (gensym)))
+                 syms)
+     ,@body))
+
 ; --- Type casting ----------------------------------------------
 
 (defun ->string (x)

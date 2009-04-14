@@ -8,6 +8,7 @@
                    :pm
                    :pm1
                    :when-let
+                   :with-gensyms
                    :->string
                    :->string-down
                    :->string-up
