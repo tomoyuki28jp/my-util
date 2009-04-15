@@ -7,7 +7,7 @@
 (defsystem  :my-util
   :version  "0.0.2"
   :name     "my-util"
-  :author   "Tomoyuki Matsumoto <tomoyuki28jp@no-spam@yahoo.co.jp>"
+  :author   "Tomoyuki Matsumoto <tomoyuki28jp@gmail.com>"
   :licence  "BSD"
   :description "My Common Lisp Utilities"
   :depends-on  (:anaphora :cl-ppcre)

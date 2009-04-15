@@ -6,7 +6,7 @@
 
 (defsystem :my-util-tests
   :name    "my-util-tests"
-  :author  "Tomoyuki Matsumoto <tomoyuki28jp@no-spam@yahoo.co.jp>"
+  :author  "Tomoyuki Matsumoto <tomoyuki28jp@gmail.com>"
   :licence "BSD"
   :description "tests for my-util"
   :depends-on  (:my-util :fiveam)
