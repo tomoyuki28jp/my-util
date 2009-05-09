@@ -1,3 +1,6 @@
+Version 0.0.3
+Added asdf-version, asdf-version= and asdf-version<=
+
 Version 0.0.2
 2009-04-15
 Added with-gensyms

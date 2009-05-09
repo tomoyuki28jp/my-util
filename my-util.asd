@@ -5,7 +5,7 @@
 (in-package :my-util-asd)
 
 (defsystem  :my-util
-  :version  "0.0.2"
+  :version  "0.0.3"
   :name     "my-util"
   :author   "Tomoyuki Matsumoto <tomoyuki28jp@gmail.com>"
   :licence  "BSD"
