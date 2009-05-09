@@ -7,6 +7,9 @@
           (:export ; --- util ---
                    :pm
                    :pm1
+                   :asdf-version
+                   :asdf-version=
+                   :asdf-version<=
                    :when-let
                    :with-gensyms
                    :->string

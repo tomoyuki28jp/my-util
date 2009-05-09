@@ -5,7 +5,21 @@
 (defmacro pm  (expr)  `(pprint (macroexpand   ',expr)))
 (defmacro pm1 (expr)  `(pprint (macroexpand-1 ',expr)))
 
-; --- Binding constructs ----------------------------------------
+; --- ASDF version ----------------------------------------------
+
+(defun asdf-version (name)
+  (asdf:component-version (asdf:find-system name)))
+
+(defun asdf-version=  (name version)
+  (or (string= (asdf-version name) version)
+      (error "~S must be version ~A" name version)))
+
+(defun asdf-version<= (name version)
+  (flet ((int (x) (parse-integer (remove #\. x))))
+    (or (<= (int (asdf-version name)) (int version))
+        (error "~S must be version ~A or higher" name version))))
+
+; --- Bindings --------------------------------------------------
 
 (defmacro when-let ((var form) &body body)
   `(let ((,var ,form))
