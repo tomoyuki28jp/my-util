@@ -16,7 +16,7 @@
 
 (defun asdf-version<= (name version)
   (flet ((int (x) (parse-integer (remove #\. x))))
-    (or (<= (int (asdf-version name)) (int version))
+    (or (<= (int version) (int (asdf-version name)))
         (error "~S must be version ~A or higher" name version))))
 
 ; --- Bindings --------------------------------------------------
