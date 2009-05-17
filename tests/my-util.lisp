@@ -69,3 +69,26 @@
   (is (string= (join "," nil 1 nil 2 nil 3 nil) "1,2,3"))
   (is (string= (join "," "1" "2" "3") "1,2,3"))
   (is (string= (join "," nil "1" nil "2" nil "3"nil) "1,2,3")))
+
+(test hooks
+  (let (var)
+    (defun init-test-var () (setf var nil))
+    (defun test-fn1 () (push 1 var))
+    (defun test-fn2 () (push 2 var))
+    (defun test-fn3 () (push 3 var))
+    (defun get-test-var () var))
+  (progn
+    (add-hook 't1 #'init-test-var)
+    (add-hook 't1 #'test-fn1)
+    (add-hook 't1 #'test-fn2)
+    (add-hook 't1 #'test-fn3)
+    (run-hooks 't1)
+    (is (equal (get-test-var) '(3 2 1))))
+  (progn
+    (add-hook 't1 #'init-test-var)
+    (add-hook 't1 #'test-fn1)
+    (add-hook 't1 #'test-fn2)
+    (add-hook 't1 #'test-fn3)
+    (rem-hook 't1 #'test-fn2)
+    (run-hooks 't1)
+    (is (equal (get-test-var) '(3 1)))))

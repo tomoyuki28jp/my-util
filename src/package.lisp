@@ -22,6 +22,9 @@
                    :hash->alist
                    :concat
                    :join
+                   :run-hooks
+                   :add-hook
+                   :rem-hook
                    ; --- anaphora ---
                    ,@(loop for s being the external-symbol
                            in :anaphora collect s)

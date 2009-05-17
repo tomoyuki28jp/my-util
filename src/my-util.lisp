@@ -5,7 +5,7 @@
 (defmacro pm  (expr)  `(pprint (macroexpand   ',expr)))
 (defmacro pm1 (expr)  `(pprint (macroexpand-1 ',expr)))
 
-; --- ASDF version ----------------------------------------------
+; --- ASDF versions ---------------------------------------------
 
 (defun asdf-version (name)
   (asdf:component-version (asdf:find-system name)))
@@ -74,3 +74,24 @@
 (defun join (joiner &rest args)
   (format nil (concat "~{~A~^" (->string joiner) "~}")
           (remove nil args)))
+
+; --- Hooks -----------------------------------------------------
+
+(defvar *hooks* (make-hash-table))
+
+(defun run-hooks (&rest hooks)
+  (dolist (hook hooks)
+    (dolist (function (gethash hook *hooks*))
+      do (funcall function))))
+
+(defun add-hook (hook function)
+  (check-type function function)
+  (let ((functions (gethash hook *hooks*)))
+    (unless (member function functions)
+      (setf (gethash hook *hooks*)
+            (append functions (list function))))))
+
+(defun rem-hook (hook function)
+  (check-type function function)
+  (setf (gethash hook *hooks*)
+        (remove function (gethash hook *hooks*))))
