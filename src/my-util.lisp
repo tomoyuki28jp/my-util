@@ -84,6 +84,10 @@
     (dolist (function (gethash hook *hooks*))
       do (funcall function))))
 
+(defun run-hook-with-args (hook &rest args)
+  (dolist (function (gethash hook *hooks*))
+    do (apply function args)))
+
 (defun add-hook (hook function)
   (check-type function function)
   (let ((functions (gethash hook *hooks*)))

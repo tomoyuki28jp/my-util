@@ -23,6 +23,7 @@
                    :concat
                    :join
                    :run-hooks
+                   :run-hook-with-args
                    :add-hook
                    :rem-hook
                    ; --- anaphora ---
