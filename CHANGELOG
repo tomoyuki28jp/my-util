@@ -1,4 +1,9 @@
+Version 0.0.4
+2009-05-18
+Added run-hooks, add-hook and rem-hook functions
+
 Version 0.0.3
+2009-05-11
 Added asdf-version, asdf-version= and asdf-version<=
 
 Version 0.0.2
